@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<title>Employee Time</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/employee-data.css">
+
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/javascript/moment.js"></script>
+	<script type="text/javascript" src="assets/javascript/employees.js"></script>
+<head>
+
+<body>
+	<section id="mainContainer">
+
+		<div class="panel banner-panel">
+			<div class="banner-panel-header">
+				Employee Data Management
+			</div>
+			<div class="banner-panel-body">
+				A Comprehensive Directory of Employee Billable Hours
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-header panel-employees-header">
+				Current Employees
+			</div>
+			<div class="panel-body">
+				<div class="container">	
+					<div id="employeeListHeader" class="row">
+						<div class="col-sm-2 employeeListColumnHeader">
+							Employee Name
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Role	
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Start Date
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Months Worked
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Monthly Rate ($)
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Total Billed ($)
+						</div>
+					</div> <!-- employeeListHeader -->
+					<div id="employeeListDiv"> 
+						<div class="row employeeListing">
+						</div> <!-- row employeeListing -->
+					</div> <!-- employeeListDiv -->
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-header panel-employees-header">
+				Add Employee
+			</div>
+			<div class="panel-body">
+				<form id="newemployeeForm">
+					<label for="employeeNameInput">Employee Name:</label>
+					<input type="text" class="form-control" id="employeeNameInput">
+
+					<label for="roleInput">Role:</label>
+					<input type="text" class="form-control" id="roleInput">
+
+					<label for="startDateInput">Start Date (DD/MM/YY - ex: 25/10/89):</label>
+					<input type="text" class="form-control" id="startDateInput">
+
+					<label for="monthlyRateInput">Monthly Rate:</label>
+					<input type="text" class="form-control" id="monthlyRateInput">
+					<br>
+					<button type="button" id="btnAddemployee" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	
+	<script>
+
+ 		$("#btnAddemployee").click(function(){
+ 			addEmployeeListing();
+ 		});
+
+		$(document).on("click", "button.delete", function() {
+			deleteemployeeListing($(this).attr("data-index"));
+		});
+
+		$(document).on("click", "button.edit", function() {
+			editemployeeListing($(this).attr("data-index"));
+		});
+
+
+
+	</script>
+
+</body>
+</html>

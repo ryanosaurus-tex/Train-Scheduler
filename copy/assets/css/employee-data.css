@@ -1,0 +1,141 @@
+body{
+	/*background-image: url("../images/tileBackground4.jpg");*/
+	background-color: #ccc;
+	font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+	font-size: 16px;
+/*	line-height: 36px;*/
+}
+
+.edit{
+	margin-right: 5px;
+}
+
+.banner-panel{
+	background-color: black;
+	width:100%;
+	color:white;
+	text-align: center;
+}
+
+.banner-panel-header{
+	margin-top: 20px;
+	font-size: 36px;
+	font-weight: bold;
+	height: 100px;
+}
+
+.banner-panel-body{
+	height: 35px;	
+}
+
+.panel-employees-header{
+	background-color: blue;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+}
+.employeeListColumnHeader{
+	font-weight: bold;
+	margin-top: 5px;
+	padding-bottom: 5px;
+/*	border-bottom: 1px #000000 solid;*/
+	vertical-align: middle;
+}
+
+.employeeButtons{
+	align-items: center;
+	align-content: center;
+	align-self: center;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	alignment-baseline: center;
+}
+.employeeListing{
+	margin-top: 1px;
+	padding-bottom: 1px;
+	/*border-bottom: 1px #000000 solid;*/
+	vertical-align: middle;
+}
+
+.employeeItem{
+	margin-top: 5px;
+	padding-bottom: 5px;
+	vertical-align: middle;
+}
+
+.headerfonts{
+	font-family: 'Georgia', 'Times', Times New Roman, serif;
+	color: #ff0000;	
+	/*border-bottom: 3px #000000 solid;*/
+/*	padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;*/
+	text-align: center;
+}
+
+h1{
+	font-size: 32px;
+	font-weight: bold;
+	font-family: 'Georgia', 'Times', Times New Roman, serif;
+	color: #ff0000;	
+	border-bottom: 3px #000000 solid;
+/*	padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;*/
+	text-align: center;}
+
+h3{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: 'Georgia', 'Times', Times New Roman, serif;
+	color: #ff0000;	
+	border-bottom: 3px #000000 solid;
+	/*padding-left:20px;
+	padding-right:20px;
+	padding-top:5px;
+	padding-bottom:5px;*/
+	text-align: center;
+}
+
+.answers {
+	width:100%;
+	margin-top: 5px;
+}
+
+.startbutton{
+	width: 100%;
+}
+.answerbuttons {
+	width: 100%;
+}
+
+#mainContainer {
+	margin: 20px;
+/*	padding-top: 10px;
+	padding-bottom: 10px;*/
+	/*width: 100%;*/
+	/*margin: 10px auto 0 auto; */
+	/*overflow: auto;*/
+}
+
+#questionTimer{
+	text-align: center;
+	font-size: 14px;
+	font-style: italic;
+}
+
+#questionTextDiv {
+	text-align: center;
+}
+
+#passFailBodyDiv{
+	margin: auto;
+	align-content: center;
+}
+#passFailImage{
+	display: block;
+	margin: auto;
+	align-content: center;
+}

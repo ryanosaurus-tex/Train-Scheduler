@@ -11,10 +11,197 @@
 </head>
 
 <body>
+  <div class="container">
 
+    <div class="jumbotron">
+      <h1 class="text-center">Anytime is Train Time</h1>
+      <h4 class="text-center">Choo Choo. Chee Chee.</h4>
+    </div>
+    
+    <div class="panel panel-primary"> <!-- Current Schedule Table Panel -->      
+      <div class="panel-heading"> <!-- Panel Heading -->
+        <h4 class="panel-title">Current Train Schedule</h4>
+      </div> <!-- /close Panel Heading -->
+      
+      <div class="panel-body">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+          	  <th>Train Name</th>
+          	  <th>Destination</th>
+          	  <th>Frequency (min)</th>
+          	  <th>Next Arrival</th>
+          	  <th>Minutes Away</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>#Train Name</td>
+              <td>#Destination</td>
+              <td>#NUM</td>
+              <td>#Time</td>
+              <td>#NUM2</td>
+            </tr>
+            <tr>
+              <td>#Train Name</td>
+              <td>#Destination</td>
+              <td>#NUM</td>
+              <td>#Time</td>
+              <td>#NUM2</td>
+            </tr>
+          </tbody>
+        </table>                     
+      </div>
+    </div>
+
+    <div class="panel panel-primary"> <!-- Add Train Panel -->      
+      <div class="panel-heading"> <!-- Panel Heading -->
+      <h4 class="panel-title">Add Train</h4>
+      </div> <!-- /close Panel Heading -->
+      
+      <div class="panel-body">
+        <div class="form-group form-group-sm">
+
+          
+          <!-- Input Train Name -->
+          <label for="inputTrainName">Train Name</label>
+          <input type="text" class="form-control" id="inputTrainName">
+          <br>
+
+          <!-- Input Destination -->
+          <label for="inputDestination">Destination</label>
+          <input type="text" class="form-control" id="inputDestination">
+          <br>
+
+          <!-- Input First Train Time -->
+          <label for="inputFirstTrainTime">First Train Time (HH:mm - military time)</label>
+          <input type="text" class="form-control" id="inputFirstTrainTime">
+          <br>
+
+          <!-- Input Frequency -->
+          <label for="inputFrequency">Frequency (min)</label>
+          <input type="text" class="form-control" id="inputFrequency">
+          <br>
+
+          <button type="button" class="btn btn-primary btn-lg" id="submitButton">Submit</button>            
+        </div> <!-- /close Input Group -->        
+      </div> <!-- /close Panel Body -->
+    </div> <!-- /close Add Train Panel -->
+
+  </div> <!-- /close Container -->
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="./assets/javascript/scheduler.js"></script>
 
 </html>
+
+<!-- //////// REFERENCE HTML //////////////////////////////////////////////////
+
+
+<!DOCTYPE html>
+<html lang="en-us">
+	<title>Employee Time</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/employee-data.css">
+
+	<script src="https://www.gstatic.com/firebasejs/4.3.1/firebase.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="assets/javascript/moment.js"></script>
+	<script type="text/javascript" src="assets/javascript/employees.js"></script>
+<head>
+
+<body>
+	<section id="mainContainer">
+
+		<div class="panel banner-panel">
+			<div class="banner-panel-header">
+				Employee Data Management
+			</div>
+			<div class="banner-panel-body">
+				A Comprehensive Directory of Employee Billable Hours
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-header panel-employees-header">
+				Current Employees
+			</div>
+			<div class="panel-body">
+				<div class="container">	
+					<div id="employeeListHeader" class="row">
+						<div class="col-sm-2 employeeListColumnHeader">
+							Employee Name
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Role	
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Start Date
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Months Worked
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Monthly Rate ($)
+						</div>
+						<div class="col-sm-2 employeeListColumnHeader">
+							Total Billed ($)
+						</div>
+					</div> <!// employeeListHeader //>
+					<div id="employeeListDiv"> 
+						<div class="row employeeListing">
+						</div> <!// row employeeListing //>
+					</div> <!// employeeListDiv //>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-primary">
+			<div class="panel-header panel-employees-header">
+				Add Employee
+			</div>
+			<div class="panel-body">
+				<form id="newemployeeForm">
+					<label for="employeeNameInput">Employee Name:</label>
+					<input type="text" class="form-control" id="employeeNameInput">
+
+					<label for="roleInput">Role:</label>
+					<input type="text" class="form-control" id="roleInput">
+
+					<label for="startDateInput">Start Date (DD/MM/YY - ex: 25/10/89):</label>
+					<input type="text" class="form-control" id="startDateInput">
+
+					<label for="monthlyRateInput">Monthly Rate:</label>
+					<input type="text" class="form-control" id="monthlyRateInput">
+					<br>
+					<button type="button" id="btnAddemployee" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</div>
+	</section>
+	
+	<script>
+
+ 		$("#btnAddemployee").click(function(){
+ 			addEmployeeListing();
+ 		});
+
+		$(document).on("click", "button.delete", function() {
+			deleteemployeeListing($(this).attr("data-index"));
+		});
+
+		$(document).on("click", "button.edit", function() {
+			editemployeeListing($(this).attr("data-index"));
+		});
+
+
+
+	</script>
+
+</body>
+</html>
+
+-->

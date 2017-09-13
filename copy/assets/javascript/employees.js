@@ -1,20 +1,4 @@
- // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAUlH7bq1EM7kkX9kEQsn_8nnBkUehPo0Q",
-    authDomain: "train-scheduler-774ac.firebaseapp.com",
-    databaseURL: "https://train-scheduler-774ac.firebaseio.com",
-    projectId: "train-scheduler-774ac",
-    storageBucket: "train-scheduler-774ac.appspot.com",
-    messagingSenderId: "188867108749"
-  };
-  firebase.initializeApp(config);
-
-
-
-/* ------- REFERENCE CODE ----------------------------------
-
-
-  // Initialize Firebase
+// Initialize Firebase
   var config = {
     apiKey: "AIzaSyDmnPhQq0tnQMcRDtvcClCNUp_oEWac-S8",
     authDomain: "employees-4f515.firebaseapp.com",
@@ -53,4 +37,3 @@ function addEmployeeListing(){
         dateAdded: firebase.database.ServerValue.TIMESTAMP
         	});
 };
-*/
