@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Train Scheduler</title>
+
 <meta charset="utf-8">
+<title>Train Scheduler</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+
+<!-- \\Bootstrap// -->
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- \\Reset CSS// -->
+<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+
+<!-- \\My CSS// -->
 <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+<!-- \\JQuery// -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<!-- \\Firebase// -->
+<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+
+<!-- \\Moment.js// -->
+<script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
 
@@ -34,7 +53,7 @@
           	  <th>Minutes Away</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="trainTable">
             <tr>
               <td>#Train Name</td>
               <td>#Destination</td>
@@ -91,7 +110,7 @@
   </div> <!-- /close Container -->
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- My Script -->
 <script src="./assets/javascript/scheduler.js"></script>
 
 </html>

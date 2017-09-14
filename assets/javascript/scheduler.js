@@ -9,21 +9,81 @@
   };
   firebase.initializeApp(config);
 
+var database = firebase.database();
+
+$("#submitButton").on("click", function(event) {
+	event.preventDefault();
+
+	var trainName = $("#inputTrainName").val().trim();
+	var destination = $("#inputDestination").val().trim();
+	var firstTrainTime = $("#inputFirstTrainTime"); // ADD MOMENT.JS
+	var frequency = $("#inputFrequency").val().trim();
+
+	var newTrain = {
+		newTrainName: trainName,
+		newDestination: destination,
+		newFirstTrainTime: firstTrainTime,
+		newFrequency: frequency
+	};
+
+	database.ref().push(newTrain);
+
+	console.log(newTrain.newTrainName);
+	console.log(newTrain.newDestination);
+	console.log(newTrain.newFirstTrainTime);
+	console.log(newTrain.newFrequency);
+
+	$("#inputTrainName").val("");
+	$("#inputDestination").val("");
+	$("#inputFirstTrainTime").val("");
+	$("#inputFrequency").val("");
+});
+
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+
+	console.log(childSnapshot.val());
+
+	var newTrainName = childSnapshot.val().newTrainName;
+	var newDestination = childSnapshot.val().newDestination;
+	var newFirstTrainTime = childSnapshot.val().newFirstTrainTime;
+	var newFrequency = childSnapshot.val().newFrequency;
+
+	console.log(newTrainName);
+	console.log(newDestination);
+	console.log(newFirstTrainTime);
+	console.log(newFrequency);
+
+	$("#trainTable").append("<tr>" +
+								"<td>" + newTrainName + "</td>" +
+		                        "<td>" + newDestination + "</td>" +
+		                        "<td>" + newFirstTrainTime + "</td>" +
+		                        "<td>" + newFrequency + "</td>" + 
+		                    "</tr>");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* ------- REFERENCE CODE ----------------------------------
-
-
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyDmnPhQq0tnQMcRDtvcClCNUp_oEWac-S8",
-    authDomain: "employees-4f515.firebaseapp.com",
-    databaseURL: "https://employees-4f515.firebaseio.com",
-    projectId: "employees-4f515",
-    storageBucket: "",
-    messagingSenderId: "69721115698"
-  };
-firebase.initializeApp(config);
+  
 
 // Create an Object Constructor for the Train listings
 function trainListing(trainName,destination,firstTrainTime,nextTrainTime,frequency) {
